@@ -6,6 +6,7 @@ export const initSocket = async () => {
     timeout: 10000,
     transports: ["websocket"],
   };
-//   console.log(`Connecting to http://localhost:5000`);
-  return io("http://localhost:5000", options);
+  //   console.log(`Connecting to http://localhost:5000`);
+
+  return io(import.meta.env.VITE_REACT_APP_BACKEND_URL, options);
 };
