@@ -3,7 +3,7 @@ const app = express();
 const cors = require("cors");
 const http = require("http");
 const { Server } = require("socket.io");
-const ACTIONS = require("./Action");
+const ACTIONS = require("./action");
 
 const server = http.createServer(app);
 const io = new Server(server);
@@ -44,7 +44,7 @@ io.on("connection", (socket) => {
   });
 
   socket.on(ACTIONS.SYNC_CODE, ({ socketId, code }) => {
-    console.log("code ", code);
+    // console.log("code ", code);
     io.to(socketId).emit(ACTIONS.CODE_CHANGE, { getCode:code });
   });
 
